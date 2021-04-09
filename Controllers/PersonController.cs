@@ -4,7 +4,7 @@ using PersonSkill.Models;
 
 namespace PersonSkill.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class PersonController : ControllerBase
     {

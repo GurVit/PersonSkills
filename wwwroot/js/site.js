@@ -1,4 +1,4 @@
-﻿const uri = 'api/person';
+﻿const uri = 'api/v1/person';
 let persons = [];
 
 function getItems() {
