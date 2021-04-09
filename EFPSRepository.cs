@@ -10,7 +10,7 @@ namespace PersonSkill
         private readonly PSContext Context;
         public IEnumerable<Person> Get()
         {
-            IEnumerable<Person> persons = Context.Persons.Include(q => q.skills);
+            IEnumerable<Person> persons = Context.Persons.Include(q => q.Skills);
             return persons;
         }
         public Person Get(long id)
@@ -24,7 +24,7 @@ namespace PersonSkill
         public void PostPerson(Person item)
         {
             Context.Persons.Add(item);
-            foreach (var skill in item.skills)
+            foreach (var skill in item.Skills)
             {
                 Context.Skills.Add(skill);
             }
@@ -33,19 +33,19 @@ namespace PersonSkill
 
         public void PutPerson(Person updatedPerson)
         {
-            Person currentItem = Context.Persons.Include(q => q.skills).FirstOrDefault(w => w.id == updatedPerson.id);
-            currentItem.name = updatedPerson.name;
-            currentItem.displayName = updatedPerson.displayName;
-            foreach (var skill in currentItem.skills)
+            Person currentItem = Context.Persons.Include(q => q.Skills).FirstOrDefault(w => w.Id == updatedPerson.Id);
+            currentItem.Name = updatedPerson.Name;
+            currentItem.DisplayName = updatedPerson.DisplayName;
+            foreach (var skill in currentItem.Skills)
             {
-                Skill updatedSkill = Context.Skills.FirstOrDefault(q => q.skillName == skill.skillName && q.personid == skill.personid);
+                Skill updatedSkill = Context.Skills.FirstOrDefault(q => q.SkillName == skill.SkillName && q.PersonId == skill.PersonId);
                 if (updatedSkill == null)
                 {
-                    Skill newSkill = new Skill() { personid = skill.personid, skillName = skill.skillName, level = skill.level, person = currentItem };
+                    Skill newSkill = new Skill() { PersonId = skill.PersonId, SkillName = skill.SkillName, Level = skill.Level, Person = currentItem };
                 }
                 else
                 {
-                    updatedSkill.level = updatedPerson.skills.FirstOrDefault(q => q.skillName == skill.skillName && q.personid == skill.personid).level;
+                    updatedSkill.Level = updatedPerson.Skills.FirstOrDefault(q => q.SkillName == skill.SkillName && q.PersonId == skill.PersonId).Level;
                 }
             }
             Context.Persons.Update(currentItem);

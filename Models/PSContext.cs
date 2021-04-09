@@ -15,8 +15,8 @@ namespace PersonSkill.Models
         public DbSet<Skill> Skills { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Person>().HasMany(c => c.skills);
-            modelBuilder.Entity<Skill>().HasKey(c => new { c.personid, c.skillName });
+            modelBuilder.Entity<Person>().HasMany(c => c.Skills);
+            modelBuilder.Entity<Skill>().HasKey(c => new { c.PersonId, c.SkillName });
         }
     }
 }

@@ -5,15 +5,15 @@ namespace PersonSkill.Models
 {
     public class Person
     {
-        public long id { get; set; }
+        public long Id { get; set; }
 
         [Required(ErrorMessage = "Введите имя")]
-        public string name { get; set; }
+        public string Name { get; set; }
 
         [Required(ErrorMessage = "Введите отображаемое имя")]
-        public string displayName { get; set; }
+        public string DisplayName { get; set; }
 
         [Required(ErrorMessage ="Неправильно введены навыки")]
-        public virtual ICollection<Skill> skills { get; set; }
+        public virtual ICollection<Skill> Skills { get; set; }
     }
 }

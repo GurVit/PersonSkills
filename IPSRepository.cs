@@ -10,7 +10,5 @@ namespace PersonSkill
         void PostPerson(Person item);
         void PutPerson(Person item);
         Person Delete(long id);
-        //void PostSkill(Person item);
-        //void PutSkill(Person item);
     }
 }

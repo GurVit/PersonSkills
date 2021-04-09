@@ -41,9 +41,9 @@ namespace PersonSkill.Controllers
             {
                 return BadRequest();
             }
-            foreach(var skillchar in person.skills)
+            foreach(var skillchar in person.Skills)
             {
-                if(skillchar.skillName == "" || double.IsNaN(skillchar.level))
+                if(skillchar.SkillName == "" || double.IsNaN(skillchar.Level))
                 {
                     return BadRequest();
                 }
